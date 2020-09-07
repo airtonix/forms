@@ -9,7 +9,6 @@ export const LAYOUTSECTION_MODEL_KEY = 'layoutsection'
 
 @model(LAYOUTSECTION_MODEL_KEY)
 export class LayoutSectionModel extends ExtendedModel(LayoutModel, {
-  name: prop<string>(),
   title: prop<string>(),
   fields: prop<LayoutFieldModel[]>(() => []),
 }) {}

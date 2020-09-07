@@ -1,39 +1,29 @@
-import React from 'react'
-import { observer } from 'mobx-react'
+import React, { ReactElement } from "react";
 
 import { Form } from './Form'
+import { useStore } from '../lib/store';
 
-@observer
-export class FormContainer extends React.Component {
-  handleChange = (formData) => {
-    const {
-      store
-    } = this.props
+export function FormContainer({
+  ...props
+}): ReactElement {
+  const store = useStore()
 
+  const handleChange = (formData) => {
     store.change(formData)
   }
 
-  handleSubmit = (formData) => {
-    const {
-      store
-    } = this.props
-
+  const handleSubmit = (formData) => {
     store.submit(formData)
   }
 
-  render () :React.ReactNode {
-    const {
-      store
-    } = this.props
-
-    return (
-      <Form
-        schema={store.dataSchema}
-        uiSchema={store.uiSchema}
-        formData={store.formData}
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit}
-      />
-    )
-  }
+  return (
+    <Form
+      {...props}
+      schema={store.schema}
+      uiSchema={store.uiSchema}
+      formData={store.formData}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+    />
+  )
 }

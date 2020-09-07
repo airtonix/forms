@@ -9,6 +9,5 @@ export const LAYOUTFORM_MODEL_KEY = 'layout-form'
 
 @model(LAYOUTFORM_MODEL_KEY)
 export class LayoutFormModel extends ExtendedModel(LayoutModel, {
-  name: prop<string>(),
   pages: prop<LayoutPageModel[]>(() => [])
 }) {}

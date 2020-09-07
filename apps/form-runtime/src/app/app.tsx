@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { FormContainer } from './components/FormContainer'
-import { StoreFactory } from '@studylink/form-core/Store'
+import { StoreFactory } from '@forms/form-core'
 
 
 export function FormRuntime (props) {

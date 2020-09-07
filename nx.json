@@ -1,5 +1,5 @@
 {
-  "npmScope": "@studylink/forms",
+  "npmScope": "forms",
   "affected": {
     "defaultBase": "master"
   },
@@ -23,14 +23,20 @@
   },
   "projects": {
     "form-runtime": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": [
+        "form-core"
+      ]
     },
     "form-runtime-e2e": {
       "tags": [],
       "implicitDependencies": ["form-runtime"]
     },
     "form-server": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": [
+        "form-core"
+      ]
     },
     "form-core": {
       "tags": []
