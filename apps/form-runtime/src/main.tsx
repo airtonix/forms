@@ -1,37 +1,24 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { documentReady } from 'html-ready'
-import { Provider } from 'mobx-react'
 
-import { ErrorBoundary } from './app/components/ErrorBoundary'
-import { FormContainer } from './app/components/FormContainer'
-import { StoreFactory } from './app/store'
+import { FormRuntime } from './app/app'
 
 export interface IMountOptions {
-  selector: string
+  selector?: string
 }
 
-export function mount (options: IMountOptions):void {
+export function mount (options?: IMountOptions):void {
   const {
     selector = '[data-form-runtime]',
-  } = options
+  } = options || {}
   const elements:HTMLElement[] = Array.from(document.querySelectorAll(selector))
 
   Array.from(elements)
     .forEach((element:HTMLElement) => {
-      const { value, ...props } = element.dataset || {}
-      const stores = StoreFactory()
-      const instance = (
-        <ErrorBoundary>
-          <Provider {...stores}>
-            <FormContainer
-              { ...props }
-            />
-          </Provider>
-        </ErrorBoundary>
-      )
-
-      render(instance, element.parentElement)
+      // TODO: replace with ElementDataSetConfig
+      const { ...props } = element.dataset || {}
+      render(<FormRuntime { ...props } />, element.parentElement)
     })
 }
 

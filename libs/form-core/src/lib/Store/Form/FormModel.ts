@@ -11,5 +11,6 @@ export const FORM_MODEL_KEY = 'form'
 @model(FORM_MODEL_KEY)
 export class FormModel extends Model({
   layout: prop<LayoutFormModel|undefined>(),
-  data: prop<FormDataFieldPrimitiveModel|FormDataFieldModel[]>(() => [])
+  data: prop<FormDataFieldPrimitiveModel|FormDataFieldModel[]>(() => []),
+  rules: prop<FormRuleModel[]>(() => []),
 }) {}

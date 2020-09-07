@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@forms/form-runtime": ["libs/form-runtime/src/index.ts"]
+      "@forms/form-runtime": ["libs/form-runtime/src/index.ts"],
+      "@@studylink/forms/form-core": ["libs/form-core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,16 +1,28 @@
 {
+  "root": true,
+  "ignorePatterns": ["**/*"],
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "eslint-plugin-import"
-  ],
   "parserOptions": {
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.*?.json"
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "eslint-plugin-import",
+    "@typescript-eslint",
+    "@nrwl/nx"
+  ],
   "rules": {
+    "new-parens": "error",
+    "dot-location": ["error", "property"],
+    "eqeqeq": ["error", "smart"],
     "indent": [
       "error",
       2,
@@ -29,7 +41,6 @@
     "no-extra-semi": [
       "error"
     ],
-    "member-access": 0,
     "space-before-function-paren": "error",
     "import/first": "error",
     "import/order": [
@@ -57,14 +68,30 @@
       2,
       "prefer-single"
     ],
+    "quotes": [
+      2,
+      "single"
+    ],
+
     "@typescript-eslint/quotes": [
       2,
       "single"
     ],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-parameter-properties": "off",
     "@typescript-eslint/no-empty-interface": 0,
-    "quotes": [
-      2,
-      "single"
-    ]
+
+    "@nrwl/nx/enforce-module-boundaries": [
+      "error",
+      {
+        "enforceBuildableLibDependency": true,
+        "allow": [],
+        "depConstraints": [
+          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+        ]
+      }
+    ],
+
+    "@typescript-eslint/interface-name-prefix": [ "always" ]
   }
 }

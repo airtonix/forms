@@ -9,6 +9,7 @@ export const FORMDATAFIELD_MODEL_KEY = 'formdatafield'
 export class FormDataFieldModel extends Model({
   type: prop<string>(),
   id: prop<string>(() => uniqueId()),
+  fieldCode: prop<string|undefined>(),
   name: prop<string>(),
 }) {
 

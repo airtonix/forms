@@ -28,6 +28,12 @@
     "form-runtime-e2e": {
       "tags": [],
       "implicitDependencies": ["form-runtime"]
+    },
+    "form-server": {
+      "tags": []
+    },
+    "form-core": {
+      "tags": []
     }
   }
 }
