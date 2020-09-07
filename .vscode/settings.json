@@ -1,0 +1,18 @@
+{
+    "eslint.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.workingDirectories": [
+      {
+        "directory": "./packages/Core",
+        "changeProcessCWD": true
+      },
+      {
+        "directory": "./packages/FormRuntime",
+        "changeProcessCWD": true
+      }
+    ],
+    "jest.rootPath": "./",
+    "jest.pathToJest": "./node_modules/.bin/jest",
+    "jest.pathToConfig": "./jest.config.js",
+    "git.autofetch": true
+}
